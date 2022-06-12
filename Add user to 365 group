@@ -1,0 +1,5 @@
+#Connecting with MFA Exchange Online EXO V2
+Connect-ExchangeOnline -UserPrincipalName credentials@domain.com -ShowProgress $true
+
+#Add User to DL
+Add-DistributionGroupMember -Identity "groupname" -Member username
