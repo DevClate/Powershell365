@@ -1,0 +1,6 @@
+Connect-ExchangeOnline -UserPrincipalName credentials@domain.com
+$UserName = Read-Host "Type in User's email address to see which 365 Groups they are apart of"
+$dn = (Get-EXOMailbox $UserName).DistinguishedName
+ 
+Get-EXORecipient -Filter "Members -eq '$dn'"
+Read-Host -Prompt "Press Enter to exit"
