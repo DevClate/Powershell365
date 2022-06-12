@@ -1,0 +1,2 @@
+#Gets Users Proxy Addresses
+Get-ADUser -Identity username -Properties proxyaddresses | Select-Object Name, @{L = "ProxyAddresses"; E = { ($_.ProxyAddresses -like 'smtp:*') -join ";"}}
