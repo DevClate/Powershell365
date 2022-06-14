@@ -1,0 +1,15 @@
+#Get Credentials to connect
+#use if you want to use variable $Credential = Get-Credential
+  
+#Connect to Exchange Online
+Connect-ExchangeOnline -UserPrincipalName credentials@domain.com
+ 
+#PowerShell to Import Members to office 365 DL from CSV
+Import-CSV ".\365users.csv" | ForEach-Object {
+    Add-DistributionGroupMember -Identity $_.GroupID -Member $_.Member
+    Write-host -f Green "Added Member '$($_.Member)' to Office 365 DL '$($_.GroupID)'"
+}
+
+
+#Disconnect Exchange Online
+Disconnect-ExchangeOnline -Confirm:$False
