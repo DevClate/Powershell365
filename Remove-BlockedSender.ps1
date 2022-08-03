@@ -10,6 +10,7 @@ param (
 
 Connect-ExchangeOnline -UserPrincipalName $UserPrincipalName
 
+#Removes user from restricted users
 Remove-BlockedSenderAddress -SenderAddress $SenderAddress
 
 Read-Host -Prompt "Press Enter to exit"
