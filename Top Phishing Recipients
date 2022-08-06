@@ -13,10 +13,10 @@ param (
     [Parameter(Mandatory)]
     $EndDate,
     
-	 [Parameter(Mandatory)]
+    [Parameter(Mandatory)]
     $Path
 
-	 [Parameter(Mandatory)]
+    [Parameter(Mandatory)]
     [string]$InternalMessage
 )
 
