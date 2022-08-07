@@ -2,10 +2,10 @@
 param (
     [Parameter(Mandatory)]
     [string]$UserPrincipalName,
-    
+
     [Parameter(Mandatory)]
     [string]$SenderAddress
-    
+
 )
 
 Connect-ExchangeOnline -UserPrincipalName $UserPrincipalName
