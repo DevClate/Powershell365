@@ -1,9 +1,14 @@
-#Get Credentials to connect
-$Credential = Get-Credential
-#For MFA, I had to comement out the credential variable and put in my username for userprincipalname or it wouldn't work. Need to test why
-  
+#Read more: https://www.sharepointdiary.com/2018/05/add-members-to-office-365-group-using-powershell.html#ixzz7WCktqaLC
+
+param (
+    [Parameter(Mandatory)]
+    [string]
+    $UserPrincipalName
+   )
+
+
 #Connect to Exchange Online
-Connect-ExchangeOnline -UserPrincipalName $Credential
+Connect-ExchangeOnline -UserPrincipalName $UserPrincipalName
  
 #PowerShell to Import Members to office 365 group from CSV
 Import-CSV ".\365users.csv" | ForEach-Object {
@@ -15,6 +20,3 @@ Read-Host -Prompt "Press Enter to exit"
 
 #Disconnect Exchange Online
 Disconnect-ExchangeOnline -Confirm:$False
-
-
-#Read more: https://www.sharepointdiary.com/2018/05/add-members-to-office-365-group-using-powershell.html#ixzz7WCktqaLC
