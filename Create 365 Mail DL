@@ -1,13 +1,25 @@
 #Create a 365 Mail Distribution List and add member
 #Created 4/14/2022
-#Working on easily importing multiple members
 
-$DistributionName = Read-Host "Type in Distribution name without @schimenti.com"
-$DisplayName = Read-Host "Display Name of DL"
-$ManagedByUser = Read-Host "Type in DL Owners Email"
-$UserName = Read-Host "Type in email of user"
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory)]
+    [string]$UserPrincipalName,
+
+    [Parameter(Mandatory,HelpMessage='Enter the user name to add to group')]
+    [string]$UserName,
+
+    [Parameter(Mandatory,HelpMessage='Type in Distribution name')]
+    [string]$DistributionName,
+
+    [Parameter(HelpMessage='Display Name of Distribution Group')]
+    [string]$DisplayName,
+
+    [Parameter(Mandatory,HelpMessage='Type in managed by user')]
+    [string]$ManagedByUser
+)
 
 #Connect to Exchange Online
-Connect-ExchangeOnline -UserPrincipalName credential@domain.com -ShowProgress $true
+Connect-ExchangeOnline -UserPrincipalName $UserPrincipalName -ShowProgress $true
 
 New-DistributionGroup -Name "$DistributionName" -Members $UserName -DisplayName $DisplayName -ManagedBy $ManagedByUser -PrimarySmtpAddress $DistributionName@domain.com
