@@ -6,7 +6,6 @@ param (
     $UserPrincipalName
    )
 
-
 #Connect to Exchange Online
 Connect-ExchangeOnline -UserPrincipalName $UserPrincipalName
  
