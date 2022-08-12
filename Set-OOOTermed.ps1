@@ -20,5 +20,6 @@
 #Connect to Exchange Online
 Connect-ExchangeOnline -UserPrincipalName $UserPrincipalName
 
+
 #Sets out of office for internal and external
 Set-MailboxAutoReplyConfiguration -Identity $UserName -AutoReplyState Enabled -InternalMessage $InternalMessage -ExternalMessage $ExternalMessage
