@@ -3,7 +3,7 @@ param (
     [Parameter(Mandatory)]
     [string]$UserPrincipalName,
     
-    [Parameter(Mandatory,HelpMessage='Enter the user name to see which 365 groups they are apart of!')]
+    [Parameter(Mandatory,HelpMessage='Enter the user name to see which 365 groups they are apart of')]
     [string]$UserName
     
 )
