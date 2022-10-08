@@ -7,7 +7,7 @@ param (
     [string]$UserPrincipalName,
 
     [Parameter(Mandatory,HelpMessage='Enter the user name to add to group')]
-    [string]$UserName,
+    [string[]]$UserName,
 
     [Parameter(Mandatory,HelpMessage='Type in Distribution name')]
     [string]$DistributionName,
