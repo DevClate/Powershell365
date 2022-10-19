@@ -17,15 +17,15 @@ param (
 Connect-ExchangeOnline -UserPrincipalName $UserPrincipalName
 Import-CSV -Path $Path | ForEach-Object {  
     $GroupUPN=$_.GroupUPN 
-    Write-Progress -Activity "Adding user to $GroupUPN… "  
-    Add-DistributionGroupMember –Identity $GroupUPN -Member $Member  
+    Write-Progress -Activity "Removing user to $GroupUPN… "  
+    Remove-DistributionGroupMember –Identity $GroupUPN -Member $Member  
     If($?)  
     {  
-    Write-Host User successfully added to $GroupUPN -ForegroundColor Green  
+    Write-Host User successfully removed from $GroupUPN -ForegroundColor Green  
     }  
     Else  
     {  
-    Write-Host Error occurred while adding user to $GroupUPN –ForegroundColor Red  
+    Write-Host Error occurred while removing user from $GroupUPN –ForegroundColor Red  
     }  
 }
 
