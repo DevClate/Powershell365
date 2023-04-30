@@ -22,10 +22,10 @@ The Notes parameter specifies the description of the Microsoft 365 Group. If the
 enclose the value in quotation marks.
 
 .EXAMPLE
-An example
+Add-CTM365Group -DisplayName "365Testing 1" -Alias 365Testing1 -Notes "This is a test 365 Group"
 
 .NOTES
-General notes
+Look over the New-UnifiedGroup Cmdlet to add any other parameters your org requires
 #>
 function Add-CTM365Group {
     [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='Medium')]
